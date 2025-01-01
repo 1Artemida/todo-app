@@ -22,4 +22,15 @@ export class TodoService {
   clearCompleted() {
     this.tasks = this.tasks.filter(t => !t.completed);
   }
+
+  getTasks() {
+    return this.tasks;
+  }
+
+  updateTaskStatus(task: Task, status: boolean) {
+    const taskToUpdate = this.tasks.find(t => t === task);
+    if (taskToUpdate) {
+      taskToUpdate.completed = status;
+    }
+  }
 }
