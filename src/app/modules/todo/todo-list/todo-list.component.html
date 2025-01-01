@@ -1,7 +1,9 @@
 <mat-list class="todo-list">
     <mat-list-item *ngFor="let task of tasks" [class.completed]="task.completed">
-        <mat-checkbox [checked]="task.completed" (change)="toggleTask(task)">
-        </mat-checkbox>
+        <label class="checkbox-container">
+            <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
+            <span class="checkmark"></span>
+        </label>
         <span class="task-name" [matTooltip]="task.name" *ngIf="task.name.length > 50">
             {{ task.name | truncateTooltip:50 }}
         </span>
