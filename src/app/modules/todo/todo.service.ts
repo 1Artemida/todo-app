@@ -1,22 +1,14 @@
 import { Injectable } from '@angular/core';
-
-export interface Task {
-  name: string;
-  completed: boolean;
-}
+import { Task } from './todo.interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  tasks: Task[] = [];
+  private tasks: Task[] = [];
 
   addTask(name: string) {
-    this.tasks.push({ name, completed: false });
-  }
-
-  deleteTask(task: Task) {
-    this.tasks = this.tasks.filter(t => t !== task);
+    this.tasks.push({ id: Date.now(), name, completed: false });
   }
 
   clearCompleted() {
@@ -24,13 +16,13 @@ export class TodoService {
   }
 
   getTasks() {
-    return this.tasks;
+    return [...this.tasks];
   }
 
-  updateTaskStatus(task: Task, status: boolean) {
-    const taskToUpdate = this.tasks.find(t => t === task);
-    if (taskToUpdate) {
-      taskToUpdate.completed = status;
+  toggleTaskCompletion(id: number): void {
+    const task = this.tasks.find(t => t.id === id);
+    if (task) {
+      task.completed = !task.completed;
     }
   }
 }

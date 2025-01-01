@@ -1,18 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo-create',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
   templateUrl: './todo-create.component.html',
   styleUrl: './todo-create.component.css'
 })
 export class TodoCreateComponent {
 
+  @Output() onAddTask = new EventEmitter<string>();
+
+  constructor() {}
+
+  // TODO: try better approach, or find a type
+  addTask(name: any) {
+    this.onAddTask.emit(name.target.value)
+  }
 }

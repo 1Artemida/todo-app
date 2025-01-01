@@ -1,0 +1,24 @@
+.todo-list {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+mat-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+mat-checkbox {
+    margin-right: 16px;
+}
+
+.task-name {
+    font-size: 16px;
+}
+
+.completed .task-name {
+    text-decoration: line-through;
+    color: gray;
+}

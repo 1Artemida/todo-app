@@ -16,15 +16,44 @@
     flex-direction: row;
     justify-content: space-between;
     width: 500px;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .todo-title {
-    font-size: 2rem;
+    font-size: 24px;
     text-transform: uppercase;
     font-weight: bold;
     color: white;
 }
 
 .todo-create {
-    margin-top: 20px;
+    margin-top: 1rem;
+}
+
+.todo-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.items-left {
+    font-size: 14px;
+    color: #757575;
+}
+
+.todo-statuses button {
+    margin: 0 4px;
+}
+
+button.active {
+    font-weight: bold;
+}
+
+mat-card-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 14px;
+    color: #757575;
 }

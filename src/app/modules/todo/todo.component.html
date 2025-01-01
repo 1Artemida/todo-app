@@ -1,16 +1,36 @@
 <div class="todo-container">
-    <div class="todo-background"></div>
     <mat-card-header class="todo-header">
         <mat-card-title class="todo-title">TODO</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
         <div class="todo-create">
-            <app-todo-create></app-todo-create>
+            <app-todo-create (onAddTask)="addTask($event)"></app-todo-create>
         </div>
+
         <div class="todo-list">
-            <app-todo-list></app-todo-list>
+            <app-todo-list [tasks]="filterTasks()" (taskToggled)="toggleTaskCompletion($event)"></app-todo-list>
+        </div>
+
+        <div class="todo-actions mat-toolbar mat-toolbar-single-row">
+            <span>{{ tasks | itemsLeft }} items left</span>
+
+            <div class="todo-statuses">
+                <button mat-button (click)="filter = 'all'" [color]="filter === 'all' ? 'primary' : ''">
+                    All
+                </button>
+                <button mat-button (click)="filter = 'active'" [color]="filter === 'active' ? 'primary' : ''">
+                    Active
+                </button>
+                <button mat-button (click)="filter = 'completed'" [color]="filter === 'completed' ? 'primary' : ''">
+                    Completed
+                </button>
+            </div>
+
+            <button mat-button (click)="clearCompleted()">Clear Completed</button>
         </div>
     </mat-card-content>
+
     <mat-card-footer>
         <p>Drad and drop to reorder list</p>
     </mat-card-footer>
