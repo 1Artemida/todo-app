@@ -37,12 +37,10 @@ export class TodoComponent implements OnInit {
 
   toggleTaskCompletion(id: number): void {
     this.todoService.toggleTaskCompletion(id);
-    this.loadTasks();
   }
 
   clearCompleted() {
     this.todoService.clearCompleted();
-    this.loadTasks();
   }
 
   filterTasks(): Task[] {

@@ -18,10 +18,13 @@ export class TodoCreateComponent {
 
   @Output() onAddTask = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
-  // TODO: try better approach, or find a type
-  addTask(name: any) {
-    this.onAddTask.emit(name.target.value)
+  addTask(input: HTMLInputElement): void {
+    const task = input.value.trim();
+    if (task) {
+      this.onAddTask.emit(task);
+    }
+    input.value = '';
   }
 }

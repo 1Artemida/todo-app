@@ -1,5 +1,5 @@
-<mat-list class="todo-list">
-    <mat-list-item *ngFor="let task of tasks" [class.completed]="task.completed">
+<mat-list class="todo-list" cdkDropList (cdkDropListDropped)="drop($event)">
+    <mat-list-item *ngFor="let task of tasks" [class.completed]="task.completed" cdkDrag>
         <label class="checkbox-container">
             <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
             <span class="checkmark"></span>
