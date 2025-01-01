@@ -1,13 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Task } from '../todo.interfaces';
 import { CommonModule } from '@angular/common';
+import { TruncateTooltipPipe } from '../pipes/truncate-tooltip.pipe';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatCheckboxModule],
+  imports: [CommonModule, MatListModule, MatCheckboxModule, MatTooltipModule, TruncateTooltipPipe],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })

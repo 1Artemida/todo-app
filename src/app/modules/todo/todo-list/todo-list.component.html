@@ -2,6 +2,11 @@
     <mat-list-item *ngFor="let task of tasks" [class.completed]="task.completed">
         <mat-checkbox [checked]="task.completed" (change)="toggleTask(task)">
         </mat-checkbox>
-        <span class="task-name">{{ task.name }}</span>
+        <span class="task-name" [matTooltip]="task.name" *ngIf="task.name.length > 50">
+            {{ task.name | truncateTooltip:50 }}
+        </span>
+        <span class="task-name" *ngIf="task.name.length <= 50">
+            {{ task.name }}
+        </span>
     </mat-list-item>
 </mat-list>
