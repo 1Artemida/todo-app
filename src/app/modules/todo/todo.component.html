@@ -1,4 +1,5 @@
 <div class="todo-container">
+
     <div class="todo-header">
         <span class="todo-title">TODO</span>
         <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24"
@@ -20,8 +21,11 @@
     </div>
 
     <div class="todo-list">
-        <app-todo-list [tasks]="tasks" (onToggleTask)="toggleTaskCompletion($event)"
-            (onClearCompleted)="clearCompleted()"></app-todo-list>
+        <app-todo-list
+            [tasks]="tasks" 
+            (onToggleTask)="toggleTaskCompletion($event)"
+            (onClearCompleted)="clearCompleted()">
+        </app-todo-list>
     </div>
 
     <div class="todo-footer">

@@ -20,6 +20,7 @@ export class TodoCreateComponent {
   constructor() { }
 
   addTask(input: HTMLInputElement): void {
+    if (!input) return;
     const task = input.value.trim();
     if (task) {
       this.onAddTask.emit(task);

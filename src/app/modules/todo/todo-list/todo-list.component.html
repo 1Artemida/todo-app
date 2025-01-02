@@ -9,12 +9,15 @@
     <div class="todo-list-container">
         <div class="todo-list-container-info" *ngFor="let task of tasks | filterTasks: filter"
             [class.completed]="task.completed" cdkDrag>
-            <label class="checkbox-container">
+
+            <label class="todo-checkbox-container">
                 <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
                 <span class="checkmark"></span>
             </label>
 
-            <span class="task-name" [matTooltip]="task.name" *ngIf="task.name.length > 50">
+            <span class="task-name" 
+                  [matTooltip]="task.name" 
+                  *ngIf="task.name.length > 50">
                 {{ task.name | truncateTooltip:50 }}
             </span>
 
@@ -25,7 +28,7 @@
     </div>
 
     <div class="todo-actions">
-        <span>{{ tasks | itemsLeft }} items left</span>
+        <span>{{ tasks | itemsLeft }} item{{ tasks.length !== 1 ? 's' : '' }} left</span>
 
         <div class="todo-statuses">
             <button [ngClass]="{active: filter === 'all'}" (click)="filter = 'all'">

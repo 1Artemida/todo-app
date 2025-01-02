@@ -48,11 +48,11 @@
     .todo-title {
         font-size: 24px;
         letter-spacing: 5px;
-        text-align: center;
     }
 
     .todo-footer {
         font-size: 12px;
+        color: white;
     }
 }
 

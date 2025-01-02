@@ -17,7 +17,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 export class TodoComponent implements OnInit {
   tasks: Task[] = [{ id: Date.now(), name: '123', completed: false }];
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
     this.loadTasks();
@@ -28,13 +28,13 @@ export class TodoComponent implements OnInit {
   }
 
   addTask(name: string) {
-    // TODO: rxjs
     this.todoService.addTask(name);
     this.loadTasks();
   }
 
   toggleTaskCompletion(id: number): void {
     this.todoService.toggleTaskCompletion(id);
+    this.loadTasks();
   }
 
   clearCompleted() {

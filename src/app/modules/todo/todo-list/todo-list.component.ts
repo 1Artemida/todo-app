@@ -1,4 +1,4 @@
-import { AfterContentChecked, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -24,7 +24,7 @@ export class TodoListComponent {
   @Output() onToggleTask = new EventEmitter<number>();
   @Output() onClearCompleted = new EventEmitter();
 
-  constructor() {}
+  constructor() { }
 
   toggleTask(task: Task): void {
     this.onToggleTask.emit(task.id);

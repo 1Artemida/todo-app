@@ -7,14 +7,12 @@
     width: 600px;
     min-height: 60px;
     border-radius: 5px;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
 }
 
 .todo-input {
     display: flex;
-    font-size: 16px;
     border: none;
-    width: 80%;
     color: gray;
 }
 
@@ -26,7 +24,6 @@ input:focus {
     .todo-create {
         flex-direction: column;
         max-width: 330px;
-        min-height: auto;
         padding: 10px;
         margin: 10px 0;
     }
@@ -45,7 +42,7 @@ input:focus {
     }
 
     .todo-input {
-        font-size: 15px;
+        font-size: 14px;
         width: 85%;
     }
 }

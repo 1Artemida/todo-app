@@ -25,12 +25,10 @@
 
 .todo-list-container-info {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
     cursor: move;
     background: white;
-    border-bottom: solid 1px #ccc;
+    border-bottom: 1px solid #ccc;
     min-height: 60px;
 }
 
@@ -38,10 +36,8 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-
 .cdk-drag-preview {
     border: none;
-    box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
         0 8px 10px 1px rgba(0, 0, 0, 0.18),
@@ -56,15 +52,15 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.checkbox-container {
+.todo-checkbox-container {
     position: relative;
     display: inline-block;
     width: 24px;
     height: 24px;
-    margin: 0 15px 0 15px;
+    margin: 0 15px;
 }
 
-.checkbox-container input {
+.todo-checkbox-container input {
     opacity: 0;
     position: absolute;
     width: 100%;
@@ -84,17 +80,17 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.checkbox-container input:checked+.checkmark {
-    background: radial-gradient(circle, rgba(76, 164, 213, 0.7035189075630253) 4%, rgba(220, 224, 180, 0.3841911764705882) 99%);
+.todo-checkbox-container input:checked+.checkmark {
+    background: radial-gradient(circle, rgba(182, 76, 213, 0.7) 18%, rgba(40, 115, 226, 0.38) 95%);
 }
 
-.checkbox-container input:checked+.checkmark:after {
+.todo-checkbox-container input:checked+.checkmark:after {
     content: '';
     position: absolute;
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 11px;
+    top: 6px;
+    width: 6px;
+    height: 12px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(40deg);
@@ -106,7 +102,6 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 90%;
 }
 
 .completed .task-name {
@@ -119,9 +114,9 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     align-items: center;
     justify-content: space-between;
     position: sticky;
-    min-height: 60px;
     bottom: 0;
-    padding: 0 10px 0 10px;
+    min-height: 60px;
+    padding: 0 10px;
     background-color: white;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -148,7 +143,7 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
 
 .todo-statuses button.active {
     font-weight: bold;
-    color: rgb(118 45 215 / 73%);
+    color: rgba(118, 45, 215, 0.73);
 }
 
 @media (max-width: 767px) {
@@ -164,11 +159,16 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
 
     .task-name {
         font-size: 14px;
-        max-width: 100%;
     }
 
     .checkbox-container {
-        margin: 0 10px 0 10px;
+        margin: 0 10px;
+    }
+
+    .todo-checkbox-container input:checked+.checkmark:after {
+        left: 9px;
+        top: 4px;
+        height: 11px;
     }
 }
 
@@ -190,6 +190,12 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     .todo-statuses {
         display: flex;
     }
+
+    .todo-checkbox-container input:checked+.checkmark:after {
+        left: 9px;
+        top: 3px;
+        width: 5px;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -199,10 +205,10 @@ mat-list-item.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     }
 
     .task-name {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    .checkbox-container {
+    .todo-checkbox-container {
         width: 30px;
         height: 30px;
     }
