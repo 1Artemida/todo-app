@@ -16,8 +16,8 @@
             </label>
 
             <span class="task-name" 
-                  [matTooltip]="task.name" 
-                  *ngIf="task.name.length > 50">
+                    [title]="task.name"
+                    *ngIf="task.name.length > 50">
                 {{ task.name | truncateTooltip:50 }}
             </span>
 
