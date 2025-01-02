@@ -1,5 +1,4 @@
-<form class="todo-create">
-    <mat-form-field class="todo-form">
-        <input #todoInput (keyup.enter)="addTask(todoInput)" type="text" matInput placeholder="Create a new todo...">
-    </mat-form-field>
-</form>
+<div class="todo-create">
+    <input class="todo-input" #todoInput (keyup.enter)="addTask(todoInput)" type="text" matInput
+        placeholder="Create a new todo...">
+</div>

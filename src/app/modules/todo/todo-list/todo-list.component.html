@@ -1,14 +1,45 @@
-<mat-list class="todo-list" cdkDropList (cdkDropListDropped)="drop($event)">
-    <mat-list-item *ngFor="let task of tasks" [class.completed]="task.completed" cdkDrag>
-        <label class="checkbox-container">
-            <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
-            <span class="checkmark"></span>
-        </label>
-        <span class="task-name" [matTooltip]="task.name" *ngIf="task.name.length > 50">
-            {{ task.name | truncateTooltip:50 }}
-        </span>
-        <span class="task-name" *ngIf="task.name.length <= 50">
-            {{ task.name }}
-        </span>
-    </mat-list-item>
-</mat-list>
+<div class="todo-list" cdkDropList (cdkDropListDropped)="drop($event)">
+
+    <ng-container *ngIf="tasks.length === 0">
+        <div class="todo-no-tasks-message">
+            <span>There are no todo yet. Create a todo!</span>
+        </div>
+    </ng-container>
+
+    <div class="todo-list-container">
+        <div class="todo-list-container-info" *ngFor="let task of tasks | filterTasks: filter"
+            [class.completed]="task.completed" cdkDrag>
+            <label class="checkbox-container">
+                <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
+                <span class="checkmark"></span>
+            </label>
+
+            <span class="task-name" [matTooltip]="task.name" *ngIf="task.name.length > 50">
+                {{ task.name | truncateTooltip:50 }}
+            </span>
+
+            <span class="task-name" *ngIf="task.name.length <= 50">
+                {{ task.name }}
+            </span>
+        </div>
+    </div>
+
+    <div class="todo-actions">
+        <span>{{ tasks | itemsLeft }} items left</span>
+
+        <div class="todo-statuses">
+            <button [ngClass]="{active: filter === 'all'}" (click)="filter = 'all'">
+                All
+            </button>
+            <button [ngClass]="{active: filter === 'active'}" (click)="filter = 'active'">
+                Active
+            </button>
+            <button [ngClass]="{active: filter === 'completed'}" (click)="filter = 'completed'">
+                Completed
+            </button>
+        </div>
+
+        <button (click)="clearCompleted()">Clear Completed</button>
+    </div>
+
+</div>

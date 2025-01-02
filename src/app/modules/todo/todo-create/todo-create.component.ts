@@ -15,7 +15,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './todo-create.component.css'
 })
 export class TodoCreateComponent {
-
   @Output() onAddTask = new EventEmitter<string>();
 
   constructor() { }

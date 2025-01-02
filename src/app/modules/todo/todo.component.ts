@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,20 +6,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { TodoService } from './todo.service';
 import { Task } from './todo.interfaces';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { ItemsLeftPipe } from './pipes/items-left.pipe';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [TodoCreateComponent, TodoListComponent, MatCardModule, MatIconModule, MatButtonModule, ItemsLeftPipe],
+  imports: [TodoCreateComponent, TodoListComponent, MatCardModule, MatIconModule, MatButtonModule],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
 export class TodoComponent implements OnInit {
-  tasks: Task[] = [];
-  filter: 'all' | 'active' | 'completed' = 'all';
+  tasks: Task[] = [{ id: Date.now(), name: '123', completed: false }];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -41,15 +39,6 @@ export class TodoComponent implements OnInit {
 
   clearCompleted() {
     this.todoService.clearCompleted();
-  }
-
-  filterTasks(): Task[] {
-    if (this.filter === 'active') {
-      return this.tasks.filter(task => !task.completed);
-    }
-    if (this.filter === 'completed') {
-      return this.tasks.filter(task => task.completed);
-    }
-    return this.tasks;
+    this.loadTasks()
   }
 }
