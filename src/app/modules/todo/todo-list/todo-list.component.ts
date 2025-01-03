@@ -30,7 +30,7 @@ export class TodoListComponent {
     this.onClearCompleted.emit();
   }
 
-  drop(event: CdkDragDrop<Task[]>): void {
+  drop(event: CdkDragDrop<Task[]>) {
     moveItemInArray(
       this.tasks,
       event.previousIndex,
