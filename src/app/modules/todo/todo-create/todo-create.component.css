@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background: white;
+    background: #ffffff;
     width: 600px;
     min-height: 60px;
     border-radius: 5px;
@@ -13,10 +13,10 @@
 .todo-input {
     display: flex;
     border: none;
-    color: gray;
+    color: #646363;
 }
 
-input:focus {
+.todo-input:focus {
     outline: none;
 }
 
@@ -48,7 +48,6 @@ input:focus {
 }
 
 @media (min-width: 1025px) {
-
     .todo-input {
         font-size: 16px;
         width: 85%;

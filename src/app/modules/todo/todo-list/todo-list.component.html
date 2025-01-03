@@ -1,4 +1,4 @@
-<div class="todo-list" cdkDropList (cdkDropListDropped)="drop($event)">
+<div class="todo-list-container" cdkDropList (cdkDropListDropped)="drop($event)">
 
     <ng-container *ngIf="tasks.length === 0">
         <div class="todo-no-tasks-message">
@@ -6,18 +6,17 @@
         </div>
     </ng-container>
 
-    <div class="todo-list-container">
-        <div class="todo-list-container-info" *ngFor="let task of tasks | filterTasks: filter"
-            [class.completed]="task.completed" cdkDrag>
+    <div class="todo-list">
+        <div class="todo-list-info" *ngFor="let task of tasks | filterTasks: filter" [class.completed]="task.completed"
+            cdkDrag>
 
-            <label class="todo-checkbox-container">
-                <input type="checkbox" [checked]="task.completed" (change)="toggleTask(task)">
-                <span class="checkmark"></span>
+            <label class="todo-checkbox">
+                <input class="todo-checkbox-input" type="checkbox" [checked]="task.completed"
+                    (change)="toggleTask(task)">
+                <span class="todo-checkbox-checkmark"></span>
             </label>
 
-            <span class="task-name" 
-                    [title]="task.name"
-                    *ngIf="task.name.length > 50">
+            <span class="task-name" [title]="task.name" *ngIf="task.name.length > 50">
                 {{ task.name | truncateTooltip:50 }}
             </span>
 

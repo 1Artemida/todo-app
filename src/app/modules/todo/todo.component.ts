@@ -12,7 +12,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   styleUrl: './todo.component.css'
 })
 export class TodoComponent implements OnInit {
-  tasks: Task[] = [{ id: Date.now(), name: '123', completed: false }];
+  tasks: Task[] = [];
 
   constructor(private todoService: TodoService) { }
 
@@ -20,11 +20,11 @@ export class TodoComponent implements OnInit {
     this.loadTasks();
   }
 
-  loadTasks(): void {
+  private loadTasks(): void {
     this.tasks = this.todoService.getTasks();
   }
 
-  addTask(name: string) {
+  addTask(name: string): void {
     this.todoService.addTask(name);
     this.loadTasks();
   }
@@ -34,7 +34,7 @@ export class TodoComponent implements OnInit {
     this.loadTasks();
   }
 
-  clearCompleted() {
+  clearCompleted(): void {
     this.todoService.clearCompleted();
     this.loadTasks()
   }

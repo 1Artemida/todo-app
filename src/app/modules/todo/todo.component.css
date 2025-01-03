@@ -24,7 +24,7 @@
     font-size: 32px;
     text-transform: uppercase;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     letter-spacing: 10px;
 }
 
@@ -52,7 +52,7 @@
 
     .todo-footer {
         font-size: 12px;
-        color: white;
+        color: #ffffff;
     }
 }
 

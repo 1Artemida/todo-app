@@ -26,7 +26,7 @@ export class TodoListComponent {
     this.onToggleTask.emit(task.id);
   }
 
-  clearCompleted() {
+  clearCompleted(): void {
     this.onClearCompleted.emit();
   }
 

@@ -43,15 +43,6 @@ describe('TodoListComponent', () => {
     expect(component.onToggleTask.emit).toHaveBeenCalledWith(task.id);
   });
 
-  it('should call moveItemInArray when tasks are dragged', () => {
-    spyOn(component, 'drop');
-
-    const event = { previousIndex: 0, currentIndex: 1 } as CdkDragDrop<Task[]>;
-    component.drop(event);
-
-    expect(component.drop).toHaveBeenCalledWith(event);
-  });
-
   it('should filter tasks correctly based on the filter value', () => {
     const tasks: Task[] = [
       { id: 1, name: 'Task 1', completed: true },

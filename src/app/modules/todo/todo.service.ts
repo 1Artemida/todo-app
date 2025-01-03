@@ -7,11 +7,11 @@ import { Task } from './todo.interfaces';
 export class TodoService {
   private tasks: Task[] = [];
 
-  addTask(name: string) {
+  addTask(name: string): void {
     this.tasks.push({ id: Date.now(), name, completed: false });
   }
 
-  clearCompleted() {
+  clearCompleted(): void {
     this.tasks = this.tasks.filter(t => !t.completed);
   }
 
